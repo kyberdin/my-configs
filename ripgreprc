@@ -1,0 +1,24 @@
+# Always make it look nice
+--pretty
+--color=always
+
+# Add devicetree types
+--type-add
+dts:*.{dts,dtsi,overlay}
+
+# Add devicetree overlay types
+--type-add
+ovr:*.{overlay}
+
+# Add Kconfig types
+--type-add
+kconf:{Kconfig,Kconfig.*,*defconfig,*.conf}
+--type-add
+kconfig:{Kconfig,Kconfig.*}
+
+# Add Zephyr config files
+--type-add
+zconf:{.config}
+
+# Because who cares about case!?
+--smart-case

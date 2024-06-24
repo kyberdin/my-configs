@@ -1,0 +1,11 @@
+{
+    "color_scheme": "Packages/MarkdownEditing/MarkdownEditor.tmTheme",
+
+    "draw_centered": false,
+    "word_wrap": false,
+    "rulers":
+    [
+        80
+    ],
+    "line_numbers": true,
+}

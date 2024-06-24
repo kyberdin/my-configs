@@ -1,0 +1,10 @@
+{
+	"extensions":
+	[
+		"overlay",
+		"dts",
+		"dtsi"
+	],
+	"translate_tabs_to_spaces": false,
+	"tab_size": 8,
+}

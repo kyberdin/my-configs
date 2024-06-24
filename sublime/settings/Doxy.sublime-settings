@@ -1,0 +1,14 @@
+// Settings in here override those in "${packages}/DoxyDoxygen/Doxy.sublime-settings",
+// and are overridden in turn by syntax-specific settings.
+{
+
+    "block_layout": {
+        "Sphinx": [
+        ],
+    },
+    "preferred_tabs_sizes":
+    [
+        13, 4, 4, 4, 4, 4
+    ]
+
+}

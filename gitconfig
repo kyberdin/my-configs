@@ -1,0 +1,77 @@
+[init]
+    defaultBranch = main
+[merge]
+	tool = vim
+[core]
+	editor = vim
+    mergeoptions = --no-edit
+    # Sets the line ending to prevent CRLF
+    eol = lf
+    # Remove ^M marker at end of diff
+    whitespace = cr-at-eol
+[mergetool "vim"]
+	path = /usr/bin/vim
+[push]
+	default = simple
+[pull]
+    rebase = false
+[branch "master"]
+    rebase = true
+[alias]
+    a = add
+    ap = add -p
+    an = add -N
+    b = branch
+    bd = branch -D
+    brd = branch -rd
+    bv = branch -vv
+    bl = blame
+    bi = bisect
+    ch = checkout
+    cm = commit -m
+    cms = commit -s -m
+    com = commit
+    coms = commit -s
+    amend = commit --amend --no-edit
+    difc = diff --cached
+    cp = cherry-pick
+    cpa = cherry-pick --abort
+    cpc = cherry-pick --continue
+    cr = cherry -v --abbrev=8
+    pu = push
+    puf = push --force-with-lease
+    pl = pull --stat -p --autostash
+    plrs = pull --rebase=true --stat -p --autostash
+    rb = rebase --autostash
+    rbi = rebase -i --autostash --autosquash
+    rba = rebase --abort
+    rbc = rebase --continue
+    rh = reset HEAD
+    rhl = reset HEAD~
+    rp = remote prune
+    rpd = remote prune --dry-run
+    rv = remote -v
+    sm = submodule
+    st = status
+    logs = log --stat
+    fa = fetch --all --prune
+    tl = tag --list
+    sha = rev-parse HEAD
+    shas = rev-parse --short HEAD
+
+    # Bisect shortcuts
+    done = bisect reset
+    bad = bisect bad
+    good = bisect good
+
+    pop = "!sh -c \"git stash pop stash@{$1};\""
+    drop = "!sh -c \"git stash drop stash@{$1};\""
+    shows = "!sh -c \"git show -p stash@{$1};\""
+    rmnv = "!sh -c \"git cm 'reset me' --no-verify; \""
+
+[credential]
+    helper = cache --timeout=36000
+[include]
+    path=~/.gitconfig.local
+[advice]
+	skippedCherryPicks = false

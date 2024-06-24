@@ -1,0 +1,6 @@
+// These settings override both User and Default settings for the C syntax
+{
+    "tab_size": 8,
+    "rulers": [80, 100],
+    "translate_tabs_to_spaces": false,
+}

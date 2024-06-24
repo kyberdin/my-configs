@@ -1,0 +1,93 @@
+# Originally provided by Octocat on GitHub
+# https://gist.github.com/octocat/9257657
+
+# YOUR SPECIFIC FILES #
+#######################
+
+
+# Assume leading underscore is system, tmp, or otherwise private
+._*/
+
+# Python
+########
+*.egg*
+*venv*
+.pytest_cache
+.tox/
+__pycache__
+dist/
+
+# Build or release artifacts
+############################
+_build*/
+_release*/
+bin/
+lib/
+build*/
+release*/
+*.a
+*.bin
+*.class
+*.com
+*.dll
+*.elf
+*.exe
+*.msi
+*.hex
+*.o
+*.pyc
+*.so
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.tar.*
+*.zip
+
+# Logs and databases
+####################
+*.log
+*.sql
+*.sqlite
+
+# IDE-specific
+##############
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Version control
+#################
+.git/
+.svn/
+.hg/
+CVS/
+
+# Office Files
+##############
+# These should never be committed, ever.
+*.doc
+*.docx
+*.odf
+*.odt
+*.pptx
+*.xls
+*.xlsx
+
+# System Files
+##############
+._*
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Misc
+######
+.sconsign.dblite
+tags

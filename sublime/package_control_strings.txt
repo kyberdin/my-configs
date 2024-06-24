@@ -1,0 +1,9 @@
+A File Icon, AlignTab, All Autocomplete
+ARM Assembly, CFG Configuration Syntax Highlighting, Clang Format
+CMakeEditor, Devicetree DTS Highlighting
+Dockerfile Syntax Highlighting, Git Commit Message Syntax, GitGutter
+gruvbox, HexViewer, Highlight Trailing Whitespace
+Horizontal Scroll, INI, InputArgs, Insert Nums, Intel HEX
+JSON Key-Value, LinkerScript, MarkdownEditing
+PackageResourceViewer, RawLineEdit, Rust Enhanced
+ShowDefinitionEx, SideBarEnhancements, TabsExtra, TrailingSpaces, TOML, ZSH

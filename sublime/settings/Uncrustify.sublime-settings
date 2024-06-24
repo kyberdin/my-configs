@@ -1,0 +1,5 @@
+{
+  "uncrustify_executable" : "/usr/bin/uncrustify",
+  "uncrustify_config" : "${project_dir}/.uncrustify.cfg",
+  "uncrustify_format_on_save" : false,
+}

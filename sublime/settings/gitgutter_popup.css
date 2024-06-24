@@ -1,0 +1,8 @@
+/* GitGutter Popup Stylesheet - User */
+
+.git-gutter div.toolbar symbol {
+    font-family: "Roboto Mono", "Segoe UI Symbol", monospace;
+    font-size: 2.4rem;
+    margin: 0;
+    padding: 0.0rem 0.1rem 0.0rem 0.1em;
+}

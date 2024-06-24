@@ -1,0 +1,13 @@
+{
+	"color_scheme": "Packages/gruvbox/gruvbox (Dark) (Hard).tmTheme",
+	"draw_centered": false,
+	"line_numbers": true,
+	"rulers":
+	[
+        80
+	],
+	"word_wrap": true,
+    "wrap_width": 80,
+    "trim_trailing_white_space_on_save": true,
+    "auto_match_enabled": false,
+}
