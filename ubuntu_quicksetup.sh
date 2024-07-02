@@ -3,7 +3,7 @@
 bin_dir="$HOME/bin"
 repos_dir="$HOME/Repos"
 gits_dir="$HOME/Gits"
-configs_dir="$repos_dir/my-configs"
+configs_dir="$gits_dir/my-configs"
 
 # Quick function for initializing directories that should exist upon first
 # configuration pass.
@@ -11,11 +11,11 @@ dirinit()
 {
 	if [ -z $1 ]; then
 		return
-    	fi
+	fi
 
-    	if [ ! -d $1 ]; then
-        	mkdir -p $1
-    	fi
+	if [ ! -d $1 ]; then
+		mkdir -p $1
+	fi
 }
 
 printhelp()
@@ -24,35 +24,28 @@ printhelp()
 	echo "environment ever on Debian/Ubuntu."
 
 	echo "Options:"
-	echo "  --core	Core repos, directories, packages, and files."
-	echo "  --rust	Rust language and core packages."
-	echo "  --zsh	ZSH repos and files."
-	echo "  --help	Show this."
+	echo "  --pkgs       Base packages. Run ONLY this with sudo."
+	echo "  --core       Core directories, repositories, and configurations."
+	echo "  --zsh	     ZSH repos and files."
+	echo "  --help	     Show this."
 }
 
-core()
+pkgs()
 {
-    	backup_ext="factory-default"
-
-	for file in profile bashrc; do
-		backup_file=.$file.$backup_ext
-		if [ ! -f $HOME/$backup_file ]; then
-        		echo "Backing up .$file as $backup_file"
-			cp -i $HOME/.$file $HOME/$backup_file
-        	fi
-    	done
-
-	dirinit $bin_dir
-	dirinit $gits_dir
-	dirinit $repos_dir
+	echo "-----> Installing git core PPA to install latest version"
+	sudo apt update
+	sudo add-apt-repository ppa:git-core/ppa
 
 	echo "-----> Installing core packages..."
+	sudo apt update
 	sudo apt install --no-install-recommends \
 build-essential \
 software-properties-common \
 curl \
 zsh \
-vim-nox\
+git \
+git-man \
+vim-nox \
 python3-dev \
 python3-pip \
 python3-virtualenv \
@@ -68,9 +61,23 @@ terminator \
 wget \
 xclip \
 xsel
+}
 
-	echo "-----> Update pip"
-	python3 -m pip install --user -U pip
+core()
+{
+	backup_ext="factory-default"
+
+	for file in profile bashrc; do
+		backup_file=.$file.$backup_ext
+		if [ ! -f $HOME/$backup_file ]; then
+			echo "Backing up .$file as $backup_file"
+			cp -v -i $HOME/.$file $HOME/$backup_file || return
+		fi
+	done
+
+	dirinit $bin_dir
+	dirinit $gits_dir
+	dirinit $repos_dir
 
 	hidden_files=(
 		alacritty.toml
@@ -87,7 +94,7 @@ xsel
 
 	if [ ! -d $gits_dir/git-number ]; then
 		git clone --depth 1 https://github.com/holygeek/git-number.git $gits_dir/git-number
-		ln -sv $PWD/git-number/git-* $bin_dir
+		ln -sv $PWD/git-number/git-* $bin_dir || return
 	fi
 
 	if [ ! -d $HOME/.fzf ]; then
@@ -96,69 +103,17 @@ xsel
 		~/.fzf/install
 	fi
 
-	if [ ! -d $HOME/.vim/plugged ]; then
+	plugged_dir=$HOME/.vim/plugged
+	if [ ! -d $plugged_dir ]; then
 		echo "-----> Setting up vim-plugged"
-		mkdir -p $HOME/.vim/plugged
+		mkdir -p $plugged_dir
 		curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-		ln -sfv $configs_dir/vimrc ~/.vimrc
-	fi
-}
-
-rust()
-{
-	installer=$HOME/Downloads/rust.sh
-
-	if [ ! -f $installer ]; then
-		# Send it to a file first so we avoid the BAD habit of immediately
-		# executing a script from the internet before inspecting it (why Rust
-		# has this as the recommended execution is wild)
-		echo "-----> Retreiving rust installer"
-		curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > $installer
-		less $installer
-
-		echo "Execute rust installer '${installer}'? [y/N]"
-        	# Wait for input for 30s before using the default option.
-        	read -t 30 replace
-
-		if [[ $replace =~ "y" ]] || [[ $replace =~ "Y" ]]; then
-			bash $installer
-		else
-			return || exit 1
-		fi
-
-		export PATH=$HOME/.cargo/bin:$PATH
-		echo "Export ~/.cargo/bin is in the PATH, or relog for profile to pick it up."
+		ln -sfv $configs_dir/vimrc ~/.vimrc || return
 	fi
 
-	if [ ! -f $HOME/.cargo/bin/bat ]; then
-		echo "-----> Installing core rust packages"
-		cargo install ripgrep fd-find exa bat
-	fi
-
-	if [ ! -d $gits_dir/nerd-fonts ]; then
-		echo "-----> Installing Hack and Meslo nerdfonts"
-		git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git $gits_dir/nerd-fonts
-		cd nerd-fonts
-		./install.sh Hack Meslo
-
-		echo "-----> Installing lsd"
-		cargo install lsd
-	fi
-
-	if [ ! -f $HOME/.cargo/bin/alacritty ]; then
-		# Currently have to manually track its dependencies
-		echo "-----> Installing alacritty dependencies"
-		sudo apt install --no-install-recommends \
-pkg-config \
-libfreetype6-dev \
-libfontconfig1-dev \
-libxcb-xfixes0-dev \
-libxkbcommon-dev
-
-		echo "-----> Installing alacritty"
-		cargo install alacritty
-	fi
+	echo "-----> Update user pip"
+	python3 -m pip install --user -U pip
 }
 
 # Do not invoke directly; go through zshrc()
@@ -216,8 +171,8 @@ zshrc()
 	if [ -f $HOME/.zshrc ]; then
 		less $HOME/.zshrc
 		echo ".zshrc exists; proceed? [y/N]"
-        	# Wait for input for 30s before using the default option.
-        	read -t 30 replace
+		# Wait for input for 30s before using the default option.
+		read -t 30 replace
 
 		if [[ $replace =~ "y" ]] || [[ $replace =~ "Y" ]]; then
 			setup_zsh || exit 1
@@ -237,18 +192,15 @@ else
 for arg in "$@"
 do
 	case "$arg" in
-    	--core*)
+	--core*)
 		core
-		;;
-	--rust*)
-		rust
 		;;
 	--zsh*)
 		zshrc
 		;;
-    	*)
-    		printhelp
+	*)
+		printhelp
 		;;
-    	esac
+	esac
 done
 fi
