@@ -43,7 +43,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-force_color_prompt=yes
+#force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -61,7 +61,7 @@ if [ "$color_prompt" = yes ]; then
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
-#unset color_prompt force_color_prompt
+unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -85,23 +85,12 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # colored GCC warnings and errors
-export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# enable git-branch coloring and appearance
-parse_git_branch() {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;31m\]$(parse_git_branch)\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)\$ '
-fi
-unset color_prompt force_color_prompt
-
-# cat range with sed -n -e "x1,x2 p" -e "91 q" <path to file>
-# Script it sometime
-
-#################################
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -115,52 +104,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-    export EDITOR='vim'
-else
-    export EDITOR='vim'
-fi
-
-#################################
-# MY ALIASES
-# alias: System
-alias upd='sudo apt update'
-alias upg='sudo apt upgrade'
-alias sai='sudo apt install'
-alias sain='sudo apt install --no-install-recommends'
-alias svi='sudo -e'
-alias e='exit'
-alias vi='$EDITOR'
-alias aliases='alias | less'
-alias psme='ps -U $USERNAME -o "%U %p  %P (%r) %C " -o %mem -o " %t (" -o start_time -o ") %a"'
-alias kiwf='kill -s SIGKILL' # kill it with fire
-
-# alias: Command Shortcuts
-alias l='ls -alhX --color=auto --group-directories-first'
-alias mkdirs='mkdir -p'
-alias cr='cp -rv'
-alias lns='ln -s'
-alias lesn='less -n'
-alias lesg='lesn +G'
-alias keyup='eval $(ssh-agent -s)'
-
-if [ -f /usr/bin/xsel ]; then
-    alias xb='xsel -bc && echo "Clipboard cleared."'
-fi
-
-# Alias Group: Python
-alias pipn='python3 -m pip install --user'
-alias pun='python3 -m pip uninstall -y'
-alias showcoms='python3 -m serial.tools.list_ports -v'
-
-# Alias Group: Git
-# (Most aliases are in ~/.gitconfig
-alias gn='git number'
-alias gst='git number --column' # This will show the same as "git status", but with numbers
-alias gc='gn -c'
-alias gvi='gc vi'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
