@@ -1,32 +1,40 @@
 {
-	"auto_complete": false,
-	"binary_file_patterns":
-	[
-		"*.o",
-		"*.bin",
-		"*.dds",
-		"*.eot",
-		"*.gif",
-		"*.hex",
-		"*.ico",
-		"*.jar",
-		"*.jpg",
-		"*.jpeg",
-		"*.msi",
-		"*.pdf",
-		"*.png",
-		"*.pyc",
-		"*.swf",
-		"*.ttf",
-		"*.tga",
-		"*.zip"
-	],
+	"theme": "Default Dark.sublime-theme",
+	"color_scheme": "Mariana.sublime-color-scheme",
+	"font_size": 8,
+	"tab_size": 4,
+	"wrap_width": 100,
+
+	// Requires Meslo installation from nerdfonts
+	"font_face": "MesloLGS Nerd Font",
+
 	"bold_folder_labels": true,
-	"close_windows_when_empty": false,
-	"color_scheme": "gruvbox (Dark) (Hard).sublime-color-scheme",
-	"copy_with_empty_selection": true,
 	"default_line_ending": "unix",
 	"ensure_newline_at_eof_on_save": true,
+	"trim_trailing_white_space_on_save": "all",
+
+	"scroll_speed": 3.0,
+	"remember_full_screen": true,
+	"remember_layout": true,
+
+	"rulers":
+	[
+		80,
+		100
+	],
+
+	// Makes autocomplete less annoying
+	"auto_complete": false,
+
+	// Ignores custom/cloned packages, marked by their .git/svn/etc
+	"ignore_vcs_packages": true,
+
+	// `gray_antialias` helps make text look nicer on MacOS
+	"font_options":
+	[
+		"gray_antialias"
+	],
+
 	"file_exclude_patterns":
 	[
 		"*.a",
@@ -35,6 +43,7 @@
 		"*.d",
 		"*.db",
 		"*.dds",
+		"*.deb",
 		"*.dll",
 		"*.dylib",
 		"*.emPackage",
@@ -67,9 +76,33 @@
 		"*.ttf",
 		"*.uvproj",
 		"*.uvprojx",
-		".DS_Store",
+		"*.zip",
+		".DS_Store"
+	],
+
+	"binary_file_patterns":
+	[
+		"*.bin",
+		"*.dds",
+		"*.deb",
+		"*.eot",
+		"*.gif",
+		"*.hex",
+		"*.ico",
+		"*.jar",
+		"*.jpeg",
+		"*.jpg",
+		"*.msi",
+		"*.o",
+		"*.pdf",
+		"*.png",
+		"*.pyc",
+		"*.swf",
+		"*.tga",
+		"*.ttf",
 		"*.zip"
 	],
+
 	"folder_exclude_patterns":
 	[
 		"CVS",
@@ -83,19 +116,7 @@
 		"_ARCHIVE*",
 		"ARCHIVE*",
 	],
-	"font_face": "MesloLGS Nerd Font",
-	"font_options":
-	[
-		"gray_antialias"
-	],
-	"font_size": 9,
-	"hot_exit": "always",
-	"hot_exit_projects": true,
-	"ignore_vcs_packages": true,
-	"ignored_packages":
-	[
-		"Vintage",
-	],
+
 	"index_exclude_patterns":
 	[
 		"*.a",
@@ -141,22 +162,9 @@
 		".DS_Store",
 		"*.zip"
 	],
-	"remember_full_screen": true,
-	"remember_workspace": true,
-	"remember_layout": true,
-	"rulers":
+
+	"ignored_packages":
 	[
-		80,
-		100
+		"Vintage",
 	],
-	"save_on_focus_lost": false,
-	"scroll_speed": 3.0,
-	"show_definitions": true,
-	"tab_size": 4,
-	"theme": "gruvbox.sublime-theme",
-	"trim_trailing_white_space_on_save": "all",
-	"ui_scale": 1.0,
-	"word_wrap": "auto",
-	"wrap_width": 100,
-	"index_files": false,
 }
