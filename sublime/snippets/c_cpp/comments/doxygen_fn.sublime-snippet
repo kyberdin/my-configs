@@ -1,0 +1,14 @@
+<snippet>
+    <content><![CDATA[
+/**
+ * @brief ${1:Brief description}
+ *
+ * @param[${2:in}] ${3:param} ${4:description}
+ *
+ * @retval 0 on success.
+ */
+]]></content>
+    <tabTrigger>doxy_fn</tabTrigger>
+    <description>Doxygen Function Comment Template</description>
+    <scope>source.c, source.c++</scope>
+</snippet>

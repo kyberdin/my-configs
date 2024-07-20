@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+${1:void} (*${2:function})(${3:void});
+]]></content>
+    <tabTrigger>func_ptr</tabTrigger>
+    <description>Function Pointer Template</description>
+    <scope>source.c, source.c++</scope>
+</snippet>

@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+"""Value and type setter for the ${1:} property."""
+]]></content>
+    <tabTrigger>docprop_setter</tabTrigger>
+    <description>Python Property Setter Docstring</description>
+    <scope>source.python</scope>
+</snippet>

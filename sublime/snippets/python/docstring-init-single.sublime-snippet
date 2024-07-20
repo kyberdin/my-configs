@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+"""Initialize the class attribute(s)."""
+]]></content>
+    <tabTrigger>docinit_single</tabTrigger>
+    <description>Python Class Init Docstring, Single-line</description>
+    <scope>source.python</scope>
+</snippet>

@@ -1,0 +1,13 @@
+<snippet>
+    <content><![CDATA[
+namespace ${1:name}
+{
+
+${2:}
+
+}   /* namespace $1 */
+]]></content>
+    <tabTrigger>cpp_namespace</tabTrigger>
+    <description>Namespace Template</description>
+    <scope>source.c++</scope>
+</snippet>

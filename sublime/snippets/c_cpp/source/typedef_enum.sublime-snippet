@@ -1,0 +1,11 @@
+<snippet>
+    <content><![CDATA[
+typedef enum
+{
+        ${2:SOMETHING} = 0,
+} ${1:something_t};
+]]></content>
+    <tabTrigger>tenum</tabTrigger>
+    <description>Typedef Enum Template</description>
+    <scope>source.c, source.c++</scope>
+</snippet>

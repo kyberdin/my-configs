@@ -1,0 +1,14 @@
+<snippet>
+    <content><![CDATA[
+/**
+ * @brief ${1:Helper macro}
+ *
+ * Additional arguments given to this macro are passed on to F.
+ *
+ * @param ${2:F} ${3:Macro to apply}
+ */
+]]></content>
+    <tabTrigger>doxy_macro</tabTrigger>
+    <description>Doxygen Macro Comment Template</description>
+    <scope>source.c, source.c++</scope>
+</snippet>

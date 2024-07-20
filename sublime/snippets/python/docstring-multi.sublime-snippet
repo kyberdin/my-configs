@@ -1,0 +1,10 @@
+<snippet>
+    <content><![CDATA[
+"""
+$0
+"""
+]]></content>
+    <tabTrigger>docmulti</tabTrigger>
+    <description>Python Multi-line Docstring Template</description>
+    <scope>source.python</scope>
+</snippet>

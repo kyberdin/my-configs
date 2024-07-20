@@ -1,0 +1,10 @@
+<snippet>
+    <content><![CDATA[
+/**
+ * @brief ${1:Brief description}
+ */
+]]></content>
+    <tabTrigger>doxy_short</tabTrigger>
+    <description>Doxygen Short Comment Template</description>
+    <scope>source.c, source.c++</scope>
+</snippet>

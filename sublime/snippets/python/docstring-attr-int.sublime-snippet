@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+"""Integer representation of the class."""
+]]></content>
+    <tabTrigger>docattr_int</tabTrigger>
+    <description>Python Attribute __int__ Docstring</description>
+    <scope>source.python</scope>
+</snippet>

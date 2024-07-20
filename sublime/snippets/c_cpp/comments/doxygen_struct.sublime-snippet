@@ -1,0 +1,14 @@
+<snippet>
+    <content><![CDATA[
+/**
+ * @brief $0
+ *
+ * @param member1 Description
+ * @param member2 Description
+ * @param member3 Description
+ */
+]]></content>
+    <tabTrigger>doxy_struct</tabTrigger>
+    <description>Doxygen Struct Comment Template</description>
+    <scope>source.c, source.c++</scope>
+</snippet>

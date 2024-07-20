@@ -1,0 +1,8 @@
+<snippet>
+    <content><![CDATA[
+/* ${1} */
+]]></content>
+    <tabTrigger>c_comment_short</tabTrigger>
+    <description>Short Comment Template</description>
+    <scope>source.c, source.c++</scope>
+</snippet>

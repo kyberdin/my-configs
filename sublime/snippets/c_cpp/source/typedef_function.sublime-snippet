@@ -1,0 +1,9 @@
+<snippet>
+    <content><![CDATA[
+/* ${4:Description} */
+typedef $1 (${2}_t)($3);
+]]></content>
+    <tabTrigger>tfunc</tabTrigger>
+    <description>Typedef Function Template</description>
+    <scope>source.c, source.c++</scope>
+</snippet>
