@@ -49,6 +49,11 @@ alias pipn='python3 -m pip install --user'
 alias pun='python3 -m pip uninstall -y'
 alias showcoms='python3 -m serial.tools.list_ports -v'
 
+# Local venv within PWD
+export VENV='venv'
+alias va='source $VENV/bin/activate'
+alias vd='deactivate'
+
 alias gn='git number'
 alias gst='git number --column' # This will show the same as "git status", but with numbers
 alias gc='gn -c'
