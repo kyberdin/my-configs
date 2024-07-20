@@ -1,0 +1,83 @@
+let g:pymode_python = 'python'
+
+set fileformat=unix
+set clipboard=unnamedplus
+set laststatus=1
+
+" for fuzzy finder
+set rtp+=$FZF
+
+" ui
+syntax enable
+set nu
+set ruler
+set wildmenu
+set mouse=a
+set scrolloff=3
+set colorcolumn=100
+
+" Indentation
+set tabstop=8
+set shiftwidth=8
+set expandtab
+set autoindent
+set smartindent
+set cindent
+set cinoptions=>1s
+filetype plugin indent on
+filetype plugin on
+
+" Set 2-space indentation for YAML files
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
+
+" Wrap Git Commmit messages at 71 characters
+au FileType gitcommit set tw=71
+
+" encoding
+set encoding=utf-8
+set termencoding=utf-8
+set fileencodings=utf-8,iso-8859-1
+
+" english
+set langmenu=en_US.UTF8
+let $LANG = 'en_US'
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+set hlsearch
+highlight Search ctermbg=LightBlue
+
+" GUI Options and Colorscheme
+" Change Row/Column to match terminal settings
+" set lines=55 columns=110 " laptop
+" set lines=72 columns=125 " desktop
+set guifont=Consolas:h11
+set background=dark
+highlight ColorColumn ctermbg=black
+
+" Disable cursor blinking
+set guicursor+=n-v-c:blinkon0
+" fix backspace between lines bug
+set backspace=indent,eol,start
+" trailing whitespace is evil
+highlight WhitespaceEOL ctermbg=white
+match WhitespaceEOL /\s\+$/
+set noswapfile
+
+" Keymap
+map <F3> :delm!<CR>
+" Escape Mode Key Remaps
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+" Insert Mode Key Remaps
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+imap <C-X> <Del>
+" Visual Mode Key Remaps
+vmap <up> <nop>
+vmap <down> <nop>
+vmap <left> <nop>
+vmap <right> <nop>
