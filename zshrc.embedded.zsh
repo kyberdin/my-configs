@@ -12,6 +12,8 @@
 # Ensure GCC colors are activated in the terminal
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+export JDEV_M4="Cortex-M4"
+export JDEV_M33="Cortex-M33"
 export JSPEED=2000
 
 alias jlink='JLinkExe -if SWD -speed $JSPEED'
