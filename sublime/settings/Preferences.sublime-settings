@@ -1,7 +1,7 @@
 {
 	"theme": "Default Dark.sublime-theme",
 	"color_scheme": "Mariana.sublime-color-scheme",
-	"font_size": 8,
+	"font_size": 10,
 	"tab_size": 4,
 	"wrap_width": 100,
 
@@ -19,7 +19,6 @@
 
 	"rulers":
 	[
-		80,
 		100
 	],
 
