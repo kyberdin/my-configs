@@ -285,6 +285,16 @@ function wmenu()
     west build -t menuconfig -d $1
 }
 
+function wpath()
+{
+    west config manifest.path $1
+}
+
+function wcnf()
+{
+    west config --list
+}
+
 function gnugdb()
 {
     build=$1
