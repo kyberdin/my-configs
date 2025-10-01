@@ -7,13 +7,11 @@
  *
  * @brief           $2
  *
- * @details         $3
- *
  * @author(s)       ${4:YOUR NAME HERE}
  *
- * @created         $5/$6/${7:2020}   (DD/MM/YYYY)
+ * @created         $5/$6/20${7:25}   (DD/MM/YYYY)
  *
- * @copyright       © $7 ${8:YOUR NAME HERE}. All Rights Reserved.
+ * @copyright       © 20$7 $4. All Rights Reserved.
  *
  *****************************************************************************/
 
@@ -21,7 +19,7 @@
 
 ]]>
     </content>
-    <tabTrigger>c_source</tabTrigger>
+    <tabTrigger>source</tabTrigger>
     <description>Simplified C Source File Template</description>
     <scope>source.c</scope>
 </snippet>
