@@ -345,6 +345,13 @@ function dts_defs() {
     less -n "${build_dir}/zephyr/include/generated/devicetree_unfixed.h"
 }
 
+function kconfs() {
+    build_dir=$1
+    regex=$2
+
+    rg "${regex}" $build_dir/zephyr/.config
+}
+
 # Removes Zephyr board revision builds
 function rmrev() {
     if [ -f $CARGO_ROOT_DIR/bin/fd ]; then
@@ -352,4 +359,28 @@ function rmrev() {
     else
         echo "Not yet defined for find."
     fi
+}
+
+function nd() {
+    nrfutil device --log-level DEBUG $@
+}
+
+function nds() {
+    snr=$1; shift;
+    cmd=$1; shift;
+
+    nd $cmd --serial-number=$snr $@
+}
+
+function ndp() {
+    nds $1 program --firmware $2
+}
+
+function ndrsec {
+    nds $1 reset --reset-kind RESET_VIA_SECDOM
+}
+
+function ndr {
+    # Shorthand for pin reset, since normal reset requires no params
+    nds $1 reset --reset-kind RESET_PIN
 }
