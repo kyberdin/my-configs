@@ -20,7 +20,7 @@
 
 $0
 
-#endif  /* ${TM_FILENAME/([a-z0-9_]+)\.([a-z0-9]+)?/\U$1_H__\E/ig)} */
+#endif /* ${TM_FILENAME/([a-z0-9_]+)\.([a-z0-9]+)?/\U$1_H__\E/ig)} */
 
 ]]>
     </content>
