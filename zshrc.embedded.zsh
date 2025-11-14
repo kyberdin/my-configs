@@ -178,9 +178,9 @@ function rmtwist
     fi
 }
 
-export ZVENV="$PYVENV/zvenv"
+export ZVENV="${ZEPHYRPROJECT}/${VENV}"
 alias zva='source $ZVENV/bin/activate'
-export NVENV="$PYVENV/ncs_venv"
+export NVENV="${NCS}/${VENV}"
 alias nva='source $NVENV/bin/activate'
 
 alias wupd='west update -f smart -k'
