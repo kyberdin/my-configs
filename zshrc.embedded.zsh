@@ -270,6 +270,11 @@ function wbl()
     fi
 }
 
+function wat()
+{
+    west attach --skip-rebuild --tui -d $1
+}
+
 function wrom()
 {
     west build -t rom_report -d $1 | batty
