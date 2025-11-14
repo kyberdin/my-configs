@@ -176,7 +176,7 @@ function pyterm()
 }
 
 # Local venv within PWD
-export VENV='venv'
+export VENV='.venv'
 alias va='source $VENV/bin/activate'
 alias vd='deactivate'
 
