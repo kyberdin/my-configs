@@ -2,7 +2,7 @@
     { "keys": ["alt+q"], "command": "exit" },
     { "keys": ["ctrl+s"], "command": "save" },
     { "keys": ["alt+s"], "command": "save" },
-    { "keys": ["ctrl+shift+s"], "command": "save_all" },
+    { "keys": ["ctrl+k", "s"], "command": "save_all" },
     { "keys": ["ctrl+e"], "command": "close_file" },
     { "keys": ["ctrl+w"], "command": "prompt_select_workspace" },
 
@@ -26,8 +26,8 @@
 
     { "keys": ["ctrl+shift+up"], "command": "select_lines", "args": {"forward": false} },
     { "keys": ["ctrl+shift+down"], "command": "select_lines", "args": {"forward": true} },
-    { "keys": ["alt+shift+up"], "command": "swap_line_up" },
-    { "keys": ["alt+shift+down"], "command": "swap_line_down" },
+    { "keys": ["alt+up"], "command": "swap_line_up" },
+    { "keys": ["alt+down"], "command": "swap_line_down" },
 
     { "keys": ["f5"], "command": "sort_lines", "args": {"case_sensitive": false} },
     { "keys": ["ctrl+f5"], "command": "sort_lines", "args": {"case_sensitive": true} },

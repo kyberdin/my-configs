@@ -164,6 +164,8 @@
 
 	"ignored_packages":
 	[
+		"SyncedSideBar",
 		"Vintage",
 	],
+	"index_files": true,
 }

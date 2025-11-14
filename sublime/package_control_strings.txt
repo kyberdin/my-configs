@@ -1,4 +1,4 @@
-A File Icon, AlignTab, All Autocomplete
+AlignTab, All Autocomplete
 ARM Assembly, CFG Configuration Syntax Highlighting, Clang Format
 CMakeEditor, DiffTabs, Devicetree DTS Highlighting
 Dockerfile Syntax Highlighting, Git Commit Message Syntax, GitGutter
