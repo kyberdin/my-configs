@@ -84,6 +84,12 @@ if [ ! -f $zauto_config ]; then
 	[[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
 fi
 
+#
+# Bindkey implementations
+# Run `bindkey -l` to list all config maps, and `bindkey -M emacs` to see list of common terminal
+# commands that might be missing.
+#
+
 # [Ctrl-RightArrow] - move forward one word
 bindkey -- '^[[1;5C' forward-word
 
@@ -92,6 +98,12 @@ bindkey -- '^[[1;5D' backward-word
 
 # [Ctrl-Delete] - delete whole forward-word
 bindkey -- '^[[3;5~' kill-word
+
+# Uncomment these if for some reason they were not activated by default
+# bindkey -- '^A' beginning-of-line
+# bindkey -- '^E' end-of-line
+# bindkey -- '^R' history-incremental-search-backward
+# bindkey -- '^U' kill-whole-line
 
 # Extend the run-help (i.e. man(1)) alias to include zsh items
 autoload -Uz run-help
