@@ -190,6 +190,18 @@ alias wdj='west debug -r jlink'
 
 alias zlint='pylint --rcfile="${ZEPHYR_BASE}/scripts/ci/pylintrc"'
 
+function ncs()
+{
+    cd $NCS
+    nva
+}
+
+function zephyr()
+{
+    cd $ZEPHYRPROJECT
+    zva
+}
+
 function pm_report()
 {
     builddir=$1
