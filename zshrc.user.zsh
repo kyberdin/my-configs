@@ -379,3 +379,30 @@ if [ -f /usr/bin/ninja ]; then
     # Always use Ninja. ALWAYS. If you can't override as needed.
     export CMAKE_GENERATOR=Ninja
 fi
+
+function unzipd() {
+    if [ $# -eq 0 ]; then
+        echo "Usage: unzip_to_folder <zipfile>"
+        return 1
+    fi
+
+    zipfile=$1
+
+    if [ ! -f "$zipfile" ]; then
+        echo "Error: File '$zipfile' does not exist"
+        return 1
+    fi
+
+    if ! file "$zipfile" | grep -q "Zip archive"; then
+        echo "Error: '$zipfile' does not appear to be a zip file"
+        return 1
+    fi
+
+    # Get the directory name (filename without .zip extension) without path
+    dirname="$(basename ${zipfile%.zip})"
+
+    mkdir -p "$dirname"
+    unzip -q "$zipfile" -d "$dirname"
+
+    echo "Extracted '$zipfile' to '$dirname/'"
+}
