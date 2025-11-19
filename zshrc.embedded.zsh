@@ -158,15 +158,7 @@ function zenv()
 
 function ztwist()
 {
-    if [ ! -f $BIN/twister ]; then
-        twister="$ZEPHYR_BASE/scripts/twister"
-    else
-        twister="$BIN/twister"
-    fi
-
-    echo "Using '$twister'"
-
-    $twister -v -N --outdir $TWISTER_OUT_DIR --report-dir $TWISTER_REPORT_DIR $@
+    west twister --inline-logs --ninja -clobber-output -vv $@
 }
 
 function rmtwist
