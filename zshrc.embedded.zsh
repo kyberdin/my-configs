@@ -378,6 +378,10 @@ function rmrev() {
     fi
 }
 
+function rgb() {
+    rg -g '!_build*' $@
+}
+
 function nd() {
     nrfutil device --log-level DEBUG $@
 }
