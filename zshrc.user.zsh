@@ -172,7 +172,7 @@ alias showcoms='python3 -m serial.tools.list_ports -v'
 function pyterm()
 {
     python3 -m serial.tools.list_ports -v
-    python3 -m serial.tools.miniterm --raw -
+    python3 -m serial.tools.miniterm $@
 }
 
 # Local venv within PWD
