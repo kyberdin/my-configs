@@ -307,6 +307,21 @@ done
 
 }
 
+# Fetch specific git tag
+function gft {
+    remote=$1
+    tag=$2
+
+    if [ -z $tag ]; then
+        echo "Invalid params: gft <remote> <tag>"
+    else
+        # TODO:
+        # Can use leading + to overwrite existing tag
+        # Remove refs/tags for a branch fetch
+        git fetch $remote "refs/tags/${tag}:refs/tags/${tag}"
+    fi
+}
+
 ##############################################################################
 #
 # SSH Keys and Keychain
