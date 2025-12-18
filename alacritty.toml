@@ -1,6 +1,3 @@
-import = [
-    "~/.config/alacritty/themes/themes/tomorrow_night.toml"
-]
 
 [colors]
 draw_bold_text_with_bright_colors = true
@@ -55,3 +52,8 @@ multiplier = 10
 
 [selection]
 save_to_clipboard = true
+
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/tomorrow_night.toml"
+]
