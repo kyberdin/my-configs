@@ -158,13 +158,13 @@ function zenv()
 
 function ztwist()
 {
-    west twister --inline-logs --ninja -clobber-output -vv $@
+    west twister --inline-logs --ninja -c -vv $@
 }
 
 function rmtwist
 {
     if [ -f $CARGO_ROOT_DIR/bin/fd ]; then
-        fd -I -t d "(^twister$|^_twister.*$)" -d 1 -x sh -c "echo Removing {}; rm -r {}" \;
+        fd -I -t d "(^twister.*$|^_twister.*$)" -d 1 -x sh -c "echo Removing {}; rm -r {}" \;
     else
         echo "Not yet defined for find."
     fi
