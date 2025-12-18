@@ -22,3 +22,7 @@ zconf:{.config}
 
 # Because who cares about case!?
 --smart-case
+
+# Add reStructuredText
+--type-add
+rst:{.rst}
