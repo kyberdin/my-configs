@@ -186,12 +186,20 @@ function ncs()
 {
     cd $NCS
     nva
+    zbn
+}
+
+function zp()
+{
+    cd $ZEPHYRPROJECT
+    zva
+    zbz
 }
 
 function zephyr()
 {
-    cd $ZEPHYRPROJECT
-    zva
+    zp
+    cd zephyr
 }
 
 function pm_report()
