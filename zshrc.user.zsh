@@ -341,29 +341,18 @@ fi
 
 function add_to_keychain()
 {
-    idkey="$SSH/$1"
+    if [[ "$1" =~ ".ssh" ]]; then
+        local idkey="$1"
+    else
+        local idkey="$SSH/$1"
+    fi
+
     if [ ! -f $idkey ]; then
         echo "No such key: $idkey"
         return
     fi
 
-    if [ $macos -eq 1 ]; then
-        # Inherit any existing SSH_AUTH_SOCK instead of a temporary one only
-        # used by keychain
-        eval `keychain --inherit any --eval $idkey`
-
-        echo -n "Start a new SSH agent? [y/N]: "
-        read -t 30 start
-        if [[ $start =~ "Y" ]] || [[ $start =~ "y" ]]; then
-            eval $(ssh-agent -s)
-        fi
-
-        # Add the key to the system keychain.
-        # This is necessary for Sublime Merge to pick it up and use it.
-        ssh-add -K $idkey
-    else
-        eval `keychain --eval $idkey`
-    fi
+    eval `keychain --eval $idkey`
 }
 
 ##############################################################################
