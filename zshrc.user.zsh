@@ -331,8 +331,6 @@ function gft {
 export SSH="$HOME/.ssh"
 dirinit $SSH
 
-export SSH_ROOT_KEY="$SSH/id_rsa"
-
 alias keyup='eval $(ssh-agent -s)'
 
 if [[ "$TERM" =~ "alacritty" ]]; then
