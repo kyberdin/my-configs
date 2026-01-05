@@ -39,6 +39,16 @@ if [ $debian -eq 1 ]; then
         }
     fi
 
+    if [ -f $CARGO_ROOT_DIR/bin/fd ]; then
+        function fsed() {
+            if [ -z $1 ] || [ -z $2 ]; then
+                echo "Usage: fsed CURRENT_STRING NEW_STRING"
+                return
+            fi
+            fd -t f -x sed -i 's/$1/$2/g'
+        }
+    fi
+
 else
     alias upd='sudo pacman -Sy'
     alias upg='sudo pacman -Syu'
