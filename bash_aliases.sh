@@ -43,7 +43,7 @@ alias pun='python3 -m pip uninstall -y'
 alias showcoms='python3 -m serial.tools.list_ports -v'
 
 # Local venv within PWD
-export VENV='venv'
+export VENV='.venv'
 alias va='source $VENV/bin/activate'
 alias vd='deactivate'
 
