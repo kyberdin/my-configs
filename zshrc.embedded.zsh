@@ -72,6 +72,7 @@ fi
 export NCS_SAMPLES="$NCS/nrf/samples"
 export NCS_HAL="$NCS/modules/hal/nordic"
 export NRF_BASE="$NCS/nrf"
+export TWISTER_OUT_DIR="twister-out"
 
 if [ -z $ZEPHYRPROJECT ]; then
     export ZEPHYRPROJECT="$HOME/zephyrproject"
@@ -83,8 +84,6 @@ function zbz()
     export ZB="$ZEPHYR_BASE"
     export ZEPHYR_MCUBOOT_MODULE_DIR="$ZEPHYR_BASE/bootloader/mcuboot"
 
-    export TWISTER_OUT_DIR="$ZEPHYR_BASE/_twister"
-    export TWISTER_REPORT_DIR="$ZEPHYR_BASE/_twister_report"
     export ZSAMPLES="$ZEPHYR_BASE/samples"
 }
 
@@ -94,8 +93,6 @@ function zbn()
     export ZB="$ZEPHYR_BASE"
     export ZEPHYR_MCUBOOT_MODULE_DIR="$ZEPHYR_BASE/bootloader/mcuboot"
 
-    export TWISTER_OUT_DIR="$ZEPHYR_BASE/_twister"
-    export TWISTER_REPORT_DIR="$ZEPHYR_BASE/_twister_report"
     export ZSAMPLES="$ZEPHYR_BASE/samples"
 }
 
@@ -158,6 +155,25 @@ function zenv()
 
 function ztwist()
 {
+    local twister_dir=$TWISTER_OUT_DIR
+
+    if [ -d $twister_dir ]; then
+        echo -n "Twister test directory '${twister_dir}' exists. Remove before testing? [Y/n]: "
+
+        # Wait for input for 5s before using the default option.
+        read -t 5 replace
+
+        echo
+
+        if [[ $replace =~ "n" ]] || [[ $replace =~ "N" ]]; then
+            # Do nothing
+        else
+            echo "Removing previous tests in $twister_dir"
+            echo
+            rm -r $twister_dir
+        fi
+    fi
+
     west twister --inline-logs --ninja -c -vv $@
 }
 
@@ -181,6 +197,8 @@ alias wdn='west debug -r nrfjprog'
 alias wdj='west debug -r jlink'
 
 alias zlint='pylint --rcfile="${ZEPHYR_BASE}/scripts/ci/pylintrc"'
+
+alias twlog='less $TWISTER_OUT_DIR/twister.log'
 
 function ncs()
 {
