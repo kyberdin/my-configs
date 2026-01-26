@@ -150,6 +150,7 @@ alias mkdirs='mkdir -p'
 alias psme='ps -U $USERNAME -o "%U %p  %P (%r) %C " -o %mem -o " %t (" -o start_time -o ") %a"'
 alias svi='sudo -e'
 alias vi='$EDITOR'
+alias zhist='vim $HOME/.zsh_history'
 
 ##############################################################################
 #
