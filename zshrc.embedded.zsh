@@ -14,7 +14,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 
 export JDEV_M4="Cortex-M4"
 export JDEV_M33="Cortex-M33"
-export JSPEED=2000
+export JSPEED=4000
 
 alias jlink='JLinkExe -if SWD -speed $JSPEED'
 alias jlinksnr='jlink -selectemubysn'
@@ -36,6 +36,52 @@ function jlinkgdb {
     fi
 
     JLinkGDBServerCLExe -select USB=$snr -device $device -endian little -if $interface -LocalhostOnly -noir -port 2331 $@
+}
+
+function jlink_cmd {
+    local snr=$1
+    local device=$2
+    local cmder=$3
+
+    if [[ -z $snr || -z $device || -z $cmder ]]; then
+        echo "Usage: jlink_cmd SNR DEVICE COMMANDERSCRIPT ..."
+        return
+    fi
+
+    shift; shift; shift;
+
+    jlinksnr $snr -Device $device -CommanderScript $cmder $@
+}
+
+function jlink_script {
+    local snr=$1
+    local device=$2
+    local script_file=$3
+
+    if [[ -z $snr || -z $device || -z $script_file ]]; then
+        echo "Usage: jlink_script SNR DEVICE JLINKSCRIPTFILE ..."
+        return
+    fi
+
+    shift; shift; shift;
+
+    jlinksnr $snr -Device $device -JLinkScriptFile $script_file $@
+}
+
+function jlink_script_cmd {
+    local snr=$1
+    local device=$2
+    local script_file=$3
+    local cmder=$4
+
+    if [[ -z $snr || -z $device || -z $script_file || -z $cmder ]]; then
+        echo "Usage: jlink_script_cmd SNR DEVICE JLINKSCRIPTFILE COMMANDERSCRIPT ..."
+        return
+    fi
+
+    shift; shift; shift; shift;
+
+    jlinksnr $snr -Device $device -JLinkScriptFile $script_file -CommanderScript $cmder $@
 }
 
 export JDEV_52810="nRF52810_xxAA"
