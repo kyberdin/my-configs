@@ -192,7 +192,7 @@ export NVENV="${NCS}/${VENV}"
 alias nva='source $NVENV/bin/activate'
 
 alias wupd='west update -f smart -k'
-alias wfl='west flash --skip-rebuild'
+alias wfl='west flash --no-rebuild'
 alias wdn='west debug -r nrfjprog'
 alias wdj='west debug -r jlink'
 
@@ -302,7 +302,7 @@ function wbl()
 
 function wat()
 {
-    west attach --skip-rebuild --tui -d $1
+    west attach --no-rebuild --tui -d $1
 }
 
 function wrom()
