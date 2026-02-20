@@ -201,25 +201,6 @@ function zenv()
 
 function ztwist()
 {
-    local twister_dir=$TWISTER_OUT_DIR
-
-    if [ -d $twister_dir ]; then
-        echo -n "Twister test directory '${twister_dir}' exists. Remove before testing? [Y/n]: "
-
-        # Wait for input for 5s before using the default option.
-        read -t 5 replace
-
-        echo
-
-        if [[ $replace =~ "y" ]] || [[ $replace =~ "Y" ]]; then
-            echo "Removing previous tests in $twister_dir"
-            echo
-            rm -r $twister_dir
-        else
-            # Do nothing
-        fi
-    fi
-
     west twister --inline-logs --ninja -c -vv -ll DEBUG $@
 }
 
