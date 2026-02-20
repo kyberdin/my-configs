@@ -446,19 +446,18 @@ function rgb() {
     rg -g '!_build*' $@
 }
 
-function nd() {
-    nrfutil device --log-level DEBUG $@
-}
-
 function nds() {
     snr=$1; shift;
     cmd=$1; shift;
 
-    nd $cmd --serial-number=$snr $@
+    nrfutil device --log-level debug $cmd --serial-number=$snr $@
 }
 
-function ndp() {
-    nds $1 program --firmware $2
+function ndt() {
+    snr=$1; shift;
+    cmd=$1; shift;
+
+    nrfutil device --log-level trace --json $cmd --serial-number=$snr $@
 }
 
 function ndrsec {
