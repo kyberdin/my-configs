@@ -211,16 +211,16 @@ function ztwist()
 
         echo
 
-        if [[ $replace =~ "n" ]] || [[ $replace =~ "N" ]]; then
-            # Do nothing
-        else
+        if [[ $replace =~ "y" ]] || [[ $replace =~ "Y" ]]; then
             echo "Removing previous tests in $twister_dir"
             echo
             rm -r $twister_dir
+        else
+            # Do nothing
         fi
     fi
 
-    west twister --inline-logs --ninja -c -vv $@
+    west twister --inline-logs --ninja -c -vv -ll DEBUG $@
 }
 
 function rmtwist
