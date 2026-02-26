@@ -13,21 +13,6 @@ if [ ! -d $ZSH_PROMPTS ]; then
 	mkdir -p $ZSH_PROMPTS
 fi
 
-fpath=("$ZSH_PROMPTS" "$fpath[@]")
-
-if [ -f "$ZSH_PROMPTS/prompt_powerlevel10k_setup" ]; then
-    # Source installation
-	powerlevel10k_dir="$HOME/Gits/powerlevel10k"
-else
-    # Package manager installation
-    powerlevel10k_dir="/usr/share/zsh-theme-powerlevel10k"
-fi
-
-if [ -d $powerlevel10k_dir ]; then
-    export POWERLEVEL9K_INSTALLATION_DIR=$powerlevel10k_dir
-    source $POWERLEVEL9K_INSTALLATION_DIR/powerlevel10k.zsh-theme
-fi
-
 # Compilation flags
 export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
 

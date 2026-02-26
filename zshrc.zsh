@@ -70,3 +70,9 @@ fi
 
 # # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+if [ -x $HOME/bin/starship ]; then
+    eval "$(starship init zsh)"
+fi
