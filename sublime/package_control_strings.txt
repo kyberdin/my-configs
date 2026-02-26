@@ -4,6 +4,6 @@ CMakeEditor, DiffTabs, Devicetree DTS Highlighting
 Dockerfile Syntax Highlighting, Git Commit Message Syntax, GitGutter
 gruvbox, HexViewer, Highlight Trailing Whitespace
 Horizontal Scroll, INI, InputArgs, Insert Nums, Intel HEX
-JSON Key-Value, LinkerScript, MarkdownEditing
+JSON Key-Value, LinkerScript
 PackageResourceViewer, RawLineEdit, Rust Enhanced
-ShowDefinitionEx, SideBarEnhancements, TabsExtra, TrailingSpaces, TOML, ZSH
+SideBarEnhancements, TabsExtra, TrailingSpaces, TOML, ZSH
