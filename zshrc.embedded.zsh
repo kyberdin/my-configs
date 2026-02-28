@@ -183,9 +183,7 @@ function zgnu()
 
 function zsdk()
 {
-    if [ ! -d $TOOLS/zephyr-sdk/latest ]; then
-        export ZEPHYR_SDK_INSTALL_DIR=""
-    else
+    if [ -d $TOOLS/zephyr-sdk/active ]; then
         export ZEPHYR_SDK_INSTALL_DIR="$TOOLS/zephyr-sdk/active"
     fi
 
