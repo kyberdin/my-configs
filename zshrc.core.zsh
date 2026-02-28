@@ -100,10 +100,10 @@ bindkey -- '^[[1;5D' backward-word
 bindkey -- '^[[3;5~' kill-word
 
 # Uncomment these if for some reason they were not activated by default
-# bindkey -- '^A' beginning-of-line
-# bindkey -- '^E' end-of-line
-# bindkey -- '^R' history-incremental-search-backward
-# bindkey -- '^U' kill-whole-line
+bindkey -- '^A' beginning-of-line
+bindkey -- '^E' end-of-line
+bindkey -- '^R' history-incremental-search-backward
+bindkey -- '^U' kill-whole-line
 
 # Extend the run-help (i.e. man(1)) alias to include zsh items
 autoload -Uz run-help
