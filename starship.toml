@@ -2,3 +2,6 @@
 
 
 add_newline = true
+
+[python]
+format = '[${symbol}${pyenv_prefix}(\($virtualenv\) )]($style)'
