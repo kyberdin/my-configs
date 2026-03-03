@@ -224,6 +224,7 @@ alias wdj='west debug -r jlink'
 alias zlint='pylint --rcfile="${ZEPHYR_BASE}/scripts/ci/pylintrc"'
 
 alias twlog='less $TWISTER_OUT_DIR/twister.log'
+alias ndl='nrfutil device list'
 
 function ncs()
 {
