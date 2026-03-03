@@ -1,7 +1,14 @@
 # Starship configurations
 
-
+# Inserts a blank line between shell prompts
 add_newline = true
+
+# Zephyr/NCS have many files
+scan_timeout = 100
+
+[cmake]
+# Unnecessary noise
+disabled = true
 
 [python]
 format = '[${symbol}${pyenv_prefix}(\($virtualenv\) )]($style)'
