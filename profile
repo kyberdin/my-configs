@@ -24,21 +24,15 @@ if [ -d $ptools ]; then
     fi
 
     if [ -d "$ptools/jlink/latest" ]; then
-        # jlink has DLLs that should be made available
+        # JLink has DLLs that should be made available
         LD_LIBRARY_PATH="$ptools/jlink/latest:$LD_LIBRARY_PATH"
 
         # symlink the desired tools in ~/bin to avoid other bin deliverables
+        # Then symlink jlink/latest to /opt/SEGGER/JLink so that nrfutil can pick it up
     fi
 
     if [ -d "$ptools/cmake/latest" ]; then
         PATH="$ptools/cmake/latest/bin:$PATH"
-    fi
-
-    if [ -d "$ptools/nordic/nrf-command-line-tools/latest" ]; then
-        # nrfjprog has DLLs that should be made available
-        LD_LIBRARY_PATH="$ptools/nordic/nrf-command-line-tools/latest/lib:$LD_LIBRARY_PATH"
-
-        # symlink the desired tools to avoid other bin deliverables
     fi
 
     if [ -d "$ptools/ftdi/latest/build" ]; then
@@ -48,7 +42,7 @@ if [ -d $ptools ]; then
 
     # Add Zephyr ARM bins to path
     if [ -d "$ptools/zephyr-sdk/latest-arm" ]; then
-        PATH="$ptools/zephyr-sdk/latest-arm/arm-zephyr-eabi/bin:$PATH"
+        PATH="$ptools/zephyr-sdk/latest-arm/bin:$PATH"
     fi
 fi
 unset ptools
